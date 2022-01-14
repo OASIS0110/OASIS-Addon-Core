@@ -1,0 +1,284 @@
+{
+  "format_version": "1.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+       "scripts": {
+      "animate": [
+        "hookshot",
+        "float",
+        "bedrock_edit",
+        "hard_craft",
+        "covid-19",
+        "creator_tools",
+        "creator_login",
+        "time_sword",
+        "time_sword_action",
+        "musical_instrument",
+        "music",
+        "god_bow",
+        "god_bow_loop",
+        "dj_ring",
+        "dj_ring_jump"
+      ]
+    },
+    "animations": {
+      "hookshot": "controller.animation.hookshot",
+      "float": "controller.animation.float",
+      "bedrock_edit": "controller.animation.bedrock_edit",
+      "hard_craft": "controller.animation.hard_craft",
+      "covid-19": "controller.animation.covid-19",
+      "creator_tools": "controller.animation.creator_tools",
+      "creator_login": "controller.animation.creator_login",
+      "time_sword": "controller.animation.time_sword",
+      "time_sword_action": "controller.animation.time_sword_action",
+      "musical_instrument": "controller.animation.musical_instrument",
+      "music": "controller.animation.music",
+      "god_bow": "controller.animation.god_bow",
+      "god_bow_loop": "controller.animation.god_bow_loop",
+      "dj_ring": "controller.animation.dj_ring",
+      "dj_ring_jump": "controller.animation.dj_ring_jump"
+    }
+    },
+    "component_groups": {
+      "minecraft:normal_player": {
+        "minecraft:attack": {
+          "damage": 1
+        }
+      },
+      "minecraft:time_sword": {
+        "minecraft:attack": {
+          "damage": 7
+        }
+      },
+      "hookshot:hookshot_ammo": {
+        "minecraft:mark_variant": {
+          "value": 1
+        }
+      },
+      "god_bow:god_arrow": {
+        "minecraft:mark_variant": {
+          "value": 1
+        }
+      },
+      "hookshot:hookshot_fire": {
+        "minecraft:spawn_entity": [
+          {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "single_use": true,
+            "spawn_entity": "hookshot:hookshot_ammo",
+            "num_to_spawn": 1
+          }
+        ]
+      },
+      "god_bow:god_bow_fire": {
+        "minecraft:spawn_entity": [
+          {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "single_use": true,
+            "spawn_entity": "god_bow:god_arrow",
+            "num_to_spawn": 1
+          }
+        ]
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "player"
+        ]
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:movement": {
+        "value": 0.1
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:can_climb": {},
+      "minecraft:player.saturation": {
+        "value": 20
+      },
+      "minecraft:player.exhaustion": {
+        "value": 0,
+        "max": 4
+      },
+      "minecraft:player.level": {
+        "value": 0,
+        "max": 24791
+      },
+      "minecraft:player.experience": {
+        "value": 0,
+        "max": 1
+      },
+      "minecraft:breathable": {
+        "totalSupply": 15,
+        "suffocateTime": -1,
+        "inhaleTime": 3.75,
+        "generatesBubbles": false
+      },
+      "minecraft:nameable": {
+        "alwaysShow": true,
+        "allowNameTagRenaming": false
+      },
+      "minecraft:physics": {},
+      "minecraft:insomnia": {
+        "days_until_insomnia": 3
+      },
+      "minecraft:rideable": {
+        "seat_count": 2,
+        "family_types": [
+          "parrot_tame"
+        ],
+        "pull_in_entities": true,
+        "seats": [
+          {
+            "position": [
+              0.4,
+              -0.15,
+              0.04
+            ],
+            "min_rider_count": 0,
+            "max_rider_count": 0,
+            "lock_rider_rotation": 0
+          },
+          {
+            "position": [
+              -0.4,
+              -0.15,
+              0.04
+            ],
+            "min_rider_count": 1,
+            "max_rider_count": 2,
+            "lock_rider_rotation": 0
+          }
+        ]
+      },
+      "minecraft:scaffolding_climber": {},
+      "minecraft:environment_sensor": [
+        {
+          "on_environment": {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "hand",
+                  "value": "hookshot:hookshot"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "self",
+                  "value": "player"
+                }
+              ]
+            },
+            "event": "hookshot:hookshot_ammo"
+          }
+        },
+        {
+          "on_environment": {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "hand",
+                  "value": "timesword:time_sword"
+                }
+              ]
+            },
+            "event": "minecraft:time_sword"
+          }
+        },{
+          "on_environment": {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "hand",
+                  "value": "god_bow:god_bow_standby"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "self",
+                  "value": "player"
+                }
+              ]
+            },
+            "event": "god_bow:god_arrow"
+          }
+        }
+      ]
+    },  
+    "events": {
+      "minecraft:event_normal_player": {
+        "add": {
+          "component_groups": [
+            "minecraft:normal_player"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "minecraft:time_sword"
+         ]
+       }
+     },
+      "minecraft:time_sword": {
+        "add": {
+          "component_groups": [
+            "minecraft:time_sword"
+          ]
+        }
+      },
+      "hookshot:hookshot_ammo": {
+        "remove": {
+          "component_groups": [
+            "hookshot:hookshot_ammo"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "hookshot:hookshot_ammo"
+          ]
+        }
+      },
+      "hookshot:hookshot_fire": {
+        "add": {
+          "component_groups": [
+            "hookshot:hookshot_fire"
+          ]
+        }
+      },
+      "god_bow:god_arrow": {
+        "remove": {
+          "component_groups": [
+            "god_bow:god_arrow"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "god_bow:god_arrow"
+          ]
+        }
+      },
+      "god_bow:god_bow_fire": {
+        "add": {
+          "component_groups": [
+            "god_bow:god_bow_fire"
+          ]
+        }
+      }
+    }
+  }
+}

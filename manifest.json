@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "オアシスが作ったアドオンを複数入れても使えるようにする前提アドオン\nMade by §bOASIS §f/ §bmc0110",
+    "name": "OASIS Addon Core",
+    "uuid": "79c7b682-a4f5-4d55-9d95-93662bb27ca8",
+    "version": [1, 4, 0],
+    "min_engine_version": [1, 16, 201]
+  },
+  "modules": [
+    {
+      "description": "",
+      "type": "data",
+      "uuid": "328db281-4c36-465e-881e-00ac754b3867",
+      "version": [1, 4, 0]
+    }
+  ]
+}
