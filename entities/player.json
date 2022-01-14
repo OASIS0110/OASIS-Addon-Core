@@ -21,8 +21,7 @@
         "music",
         "god_bow",
         "god_bow_loop",
-        "dj_ring",
-        "dj_ring_jump"
+        "omochi"
       ]
     },
     "animations": {
@@ -39,8 +38,7 @@
       "music": "controller.animation.music",
       "god_bow": "controller.animation.god_bow",
       "god_bow_loop": "controller.animation.god_bow_loop",
-      "dj_ring": "controller.animation.dj_ring",
-      "dj_ring_jump": "controller.animation.dj_ring_jump"
+      "omochi": "controller.animation.omochi"
     }
     },
     "component_groups": {
